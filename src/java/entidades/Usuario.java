@@ -5,28 +5,39 @@
  */
 package entidades;
 
+import com.google.gson.annotations.Expose;
+import java.io.Serializable;
+
 /**
  *
  * @author laura
  */
-public class Cliente {
+public class Usuario{
+    
     private int id;
-    private String contrasenia;
+    @Expose
     private String usuario;
+    
     private String nombre;
+    
+    @Expose
+    private String contrasena;
 
-    public Cliente() {
+    public Usuario() {
     }
 
-    public Cliente(int id, String contrasenia, String usuario, String nombre) {
+    public Usuario(String usuario, String contrasena) {
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+    }
+    public Usuario(int id, String usuario, String nombre) {
         this.id = id;
-        this.contrasenia = contrasenia;
         this.usuario = usuario;
         this.nombre = nombre;
     }
 
-    public Cliente(String contrasenia, String usuario, String nombre) {
-        this.contrasenia = contrasenia;
+    public Usuario(String contrasenia, String usuario, String nombre) {
+        this.contrasena=contrasenia;
         this.usuario = usuario;
         this.nombre = nombre;
     }
@@ -38,8 +49,14 @@ public class Cliente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
     public int getId() {
         return id;
@@ -49,13 +66,6 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
 
     public String getUsuario() {
         return usuario;
@@ -64,6 +74,9 @@ public class Cliente {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", usuario=" + usuario + ", nombre=" + nombre + ", contrasena=" + contrasena + '}';
+    }
 }
